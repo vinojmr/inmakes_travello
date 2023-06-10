@@ -1,0 +1,76 @@
+{% load static %}
+<html lang="en">z
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+        body{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        margin:0;
+        background-color:#f1f1f1;
+        }
+        .log-in{
+
+        background-color:#fff;
+        padding:60px;
+        border-radius:5px;
+        text-align:center;
+        width: 320px;
+        height : 420px;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        padding: 50px 60px;
+        border-style: solid;
+        border-color: white;
+        }
+       .log-in input[type='text'],  input[type='password']
+       {
+       background: transparent;
+       height: 40px;
+       color: black;
+       font-size: 16px;
+       }
+       .log-in p{
+        margin: 0;
+        padding: 0;
+        font-size: 18px;
+       }
+       .log-in input{
+        width: 100%;
+        height: 40px;
+        margin-bottom: 20px;
+        }
+        .log-in input[type='submit']{
+        border: none;
+        outline: none;
+        height: 40px;
+        color:black;
+        background:red;
+        }
+    </style>
+</head>
+    <body>
+
+        <div class="log-in" style="background-image:url({% static 'images/destination_8.jpg' %}); background-position:center">
+            <img src="{% static 'images/download.png' %}" class="avatar" style="width:150px; "><br>
+            <h2 style="color:black;">Log In</h2>
+            <form action="{% url 'login' %}" method="post">
+             {% csrf_token %}
+            <p style="text-color:white;">Username</p>
+            <input type="text" name="username" placeholder="Username"><br>
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Password"><br>
+            <input type="submit" value="Login" >
+            </form>
+        </div>
+     {% for msg in messages %}
+  {{ msg }}
+  {% endfor%}
+    </body>
+</html>

@@ -1,0 +1,93 @@
+{% extends 'template.html' %}
+{% load static %}
+{% block body %}
+
+    <!-- Body of Form starts -->
+	<div class="super-container">
+  	<div class="container">
+        <h2 class="f">Sign Up</h2>
+      <form method="post" action="{% url 'log' %}">
+          {% csrf_token %}
+
+
+          <div class="box">
+          <label for="username" class="fl fontLabel"> User Name: </label>
+                <div class="fr">
+    					<input type="text" required name="user_name"
+              placeholder="User Name" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+
+        <!--First name-->
+    		<div class="box">
+          <label for="firstName" class="fl fontLabel"> First Name: </label>
+    			<div class="new iconBox">
+
+                </div>
+    			<div class="fr">
+    					<input type="text"  name="first_name" placeholder="First Name"
+				   class="textBox" autofocus="on" required>
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--First name-->
+
+
+        <!--Second name-->
+    		<div class="box">
+          <label for="lastname" class="fl fontLabel"> Last Name: </label>
+                <div class="fr">
+    					<input type="text" required name="last_name"
+              placeholder="Last Name" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--Second name-->
+
+
+    		<!---Email ID---->
+    		<div class="box">
+          <label for="email" class="fl fontLabel"> Email ID: </label>
+    			<div class="fr">
+    					<input type="email" required name="email" placeholder="Email Id" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--Email ID----->
+
+
+    		<!---Password------>
+    		<div class="box">
+          <label for="password" class="fl fontLabel"> Password: </label>
+    			<div class="fr">
+    					<input type="Password" required name="password" placeholder="Password" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!---Password---->
+
+		  <!---C Password---->
+            <div class="box">
+          <label for="confirm_password" class="fl fontLabel"> Conf Password:</label>
+    			<div class="fr">
+    					<input type="Password" required name="password1" placeholder="confirm Password " class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+			<!---C Password---->
+
+
+    		<!---Submit Button------>
+    		<div class="box">
+    				<input type="Submit" name="Submit"  value="SIGNUP" style="color:black;">
+    		</div>
+    		<!---Submit Button----->
+      </form>
+  </div>
+		</div>
+  <!--Body of Form ends--->
+  {% for msg in messages %}
+  {{ msg }}
+  {% endfor%}
+{% endblock %}

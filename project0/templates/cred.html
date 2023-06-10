@@ -1,0 +1,96 @@
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Form</title>
+    <link href="{% static 'styles/sgnup.css' %}" type="text/css" rel="stylesheet">
+
+  </head>
+  <body>
+    <!-- Body of Form starts -->
+  	<div class="container">
+        <h2 class="f">Sign Up</h2>
+      <form method="post" action="{% url 'log' %}">
+          {% csrf_token %}
+
+
+          <div class="box">
+          <label for="username" class="fl fontLabel"> User Name: </label>
+                <div class="fr">
+    					<input type="text" required name="user_name"
+              placeholder="User Name" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+
+        <!--First name-->
+    		<div class="box">
+          <label for="firstName" class="fl fontLabel"> First Name: </label>
+    			<div class="new iconBox">
+
+                </div>
+    			<div class="fr">
+    					<input type="text"  name="first_name" placeholder="First Name"
+				   class="textBox" autofocus="on" required>
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--First name-->
+
+
+        <!--Second name-->
+    		<div class="box">
+          <label for="lastname" class="fl fontLabel"> Last Name: </label>
+                <div class="fr">
+    					<input type="text" required name="last_name"
+              placeholder="Last Name" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--Second name-->
+
+
+    		<!---Email ID---->
+    		<div class="box">
+          <label for="email" class="fl fontLabel"> Email ID: </label>
+    			<div class="fr">
+    					<input type="email" required name="email" placeholder="Email Id" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--Email ID----->
+
+
+    		<!---Password------>
+    		<div class="box">
+          <label for="password" class="fl fontLabel"> Password: </label>
+    			<div class="fr">
+    					<input type="Password" required name="password" placeholder="Password" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!---Password---->
+
+            <div class="box">
+          <label for="confirm_password" class="fl fontLabel"> Conf Password:</label>
+    			<div class="fr">
+    					<input type="Password" required name="password1" placeholder="Password " class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+
+
+
+    		<!---Submit Button------>
+    		<div class="box" style="background: #2d3e3f">
+    				<input type="Submit" name="Submit" class="submit" value="SIGNUP">
+    		</div>
+    		<!---Submit Button----->
+      </form>
+  </div>
+  <!--Body of Form ends--->
+  {% for msg in messages %}
+  {{ msg }}
+  {% endfor%}
+  </body>
+</html>
